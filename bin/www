@@ -30,6 +30,8 @@ var server = http.createServer(app);
 server.listen(port, async () => {
   console.log('Listen:' + port)
   await global.DB.connect()
+  console.log('db connetct')
+  console.log('start pulling')
   global.bot.startPolling()
   console.log('ready')
 });
