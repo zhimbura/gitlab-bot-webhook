@@ -32,8 +32,10 @@ const alias = Alias.create(sequelize)
 module.exports = {
   connect: async () => {
     try {
+      console.log('Connect db')
       return await sequelize.sync() // {force:true}
     } catch (e) {
+      console.log(e)
       return false
     }
   },

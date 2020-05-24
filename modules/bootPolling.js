@@ -37,5 +37,6 @@ bot.command('showsubscribe@oss_bss_wc_bot', showSubscribe)
 bot.command('aliasme', userNameSetter)
 bot.command('aliasme@oss_bss_wc_bot', userNameSetter)
 
+console.log('Include pulling');
 
 global.bot = bot

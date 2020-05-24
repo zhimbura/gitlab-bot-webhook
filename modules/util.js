@@ -22,7 +22,7 @@ function createPipelineResponse (webhookInfo) {
   if (webhookInfo.object_kind === 'pipeline' ) {
     let db = global.DB
     let userName = db.Alias.getTelegramName(webhookInfo.user.username)
-    let attr = webhookInfo.object_attributes()
+    let attr = webhookInfo.object_attributes
     let status = getStatus(attr.status)
     if (status.length) {
       text = `Status: ${status} (${attr.status})
