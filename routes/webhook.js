@@ -6,7 +6,7 @@ const telegram = new Telegram(process.env.BOT_TOKEN)
 const util = require('../modules/util')
 /* GET users listing. */
 router.post('/', async function(req, res, next) {
-  let message = util.createPipelineResponse(req.body)
+  let message = await util.createPipelineResponse(req.body)
   if (!message.length) {
     return res.send('ok')
   }

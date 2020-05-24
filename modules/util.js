@@ -17,11 +17,11 @@ function getStatus(status) {
   }
   return text
 }
-function createPipelineResponse (webhookInfo) {
+async function createPipelineResponse (webhookInfo) {
   let text = ''
   if (webhookInfo.object_kind === 'pipeline' ) {
     let db = global.DB
-    let userName = db.Alias.getTelegramName(webhookInfo.user.username)
+    let userName = await db.Alias.getTelegramName(webhookInfo.user.username)
     let attr = webhookInfo.object_attributes
     let status = getStatus(attr.status)
     if (status.length) {
