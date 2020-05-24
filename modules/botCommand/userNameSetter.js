@@ -12,7 +12,7 @@ module.exports = async (ctx) => {
         await ctx.telegram.sendSticker(chat.id, stickers.archi.empty)
     } else {
         if (db.Alias.addAlias(chat.username, gitlabName[0])) {
-            await ctx.reply(`Пара ${gitlabName[0]}(GitLab)-${chat.username}(telegram) создана`)
+            await ctx.reply(`Пара создана:\nGitLab - ${gitlabName[0]}\nTelegram - ${chat.username}`)
             await ctx.telegram.sendSticker(chat.id, stickers.archi.success)
         } else {
             await ctx.reply(`Произошла какая-то ошибка`)
