@@ -20,12 +20,14 @@ const Project = require('./dbModels/Project')
 const Chat = require('./dbModels/Chat')
 const Subscribe = require('./dbModels/Subscribe')
 const ChatProject = require('./dbModels/ChatProject')
+const Alias = require('./dbModels/Alias')
 
 const branch = Branch.create(sequelize)
 const project = Project.create(sequelize, branch)
 const chat = Chat.create(sequelize)
 const subscribe = Subscribe.create(sequelize, chat, branch)
 const chatToProject = ChatProject.create(sequelize, chat, project)
+const alias = Alias.create(sequelize)
 
 module.exports = {
   connect: async () => {
@@ -39,5 +41,6 @@ module.exports = {
   Project,
   Chat,
   Subscribe,
-  ChatProject
+  ChatProject,
+  Alias
 }

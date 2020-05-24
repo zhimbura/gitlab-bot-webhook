@@ -20,12 +20,15 @@ function getStatus(status) {
 function createPipelineResponse (webhookInfo) {
   let text = ''
   if (webhookInfo.object_kind === 'pipeline' ) {
-    let attr = webhookInfo.object_attributes
+    let db = global.DB
+    let userName = db.Alias.getTelegramName(webhookInfo.user.username)
+    let attr = webhookInfo.object_attributes()
     let status = getStatus(attr.status)
     if (status.length) {
       text = `Status: ${status} (${attr.status})
+ProjectL ${webhookInfo.project.name}
 Branch: ${attr.ref}
-User: @${webhookInfo.user.username}
+User: @${userName || webhookInfo.user.username}
 Commit message: ${webhookInfo.commit.message}
 URL Pipeline: ${webhookInfo.project.web_url}/pipelines/${attr.id}`
       if (attr.status === 'failed') {
