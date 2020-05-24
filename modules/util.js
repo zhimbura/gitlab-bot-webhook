@@ -26,7 +26,7 @@ async function createPipelineResponse (webhookInfo) {
     let status = getStatus(attr.status)
     if (status.length) {
       text = `Status: ${status} (${attr.status})
-ProjectL ${webhookInfo.project.name}
+Project: ${webhookInfo.project.name}
 Branch: ${attr.ref}
 User: @${userName || webhookInfo.user.username}
 Commit message: ${webhookInfo.commit.message}
