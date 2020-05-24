@@ -12,8 +12,10 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || 80);
 app.set('port', port);
+
+console.log(`Port: ${port}`)
 
 /**
  * Create HTTP server.
@@ -26,6 +28,7 @@ var server = http.createServer(app);
  */
 
 server.listen(port, async () => {
+  console.log('Listen:' + port)
   await global.DB.connect()
   global.bot.startPolling()
   console.log('ready')
