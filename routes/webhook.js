@@ -4,15 +4,22 @@ const store = require('../modules/store')
 const Telegram = require('telegraf/telegram')
 const telegram = new Telegram(process.env.BOT_TOKEN)
 const util = require('../modules/util')
+
+const fakeCash = new Set()
+
 /* GET users listing. */
-router.post('/', async function(req, res, next) {
+router.post('/', async function(req, res) {
   let message = await util.createPipelineResponse(req.body)
-  if (!message.length) {
-    return res.send('ok')
-  }
   let db = global.DB
   let project = req.body.project
   let attr = req.body.object_attributes
+  if (!message.length || fakeCash.has(message + project)) {
+    return res.send('ok')
+  }
+  fakeCash.set(message + project)
+  setTimeout(() => {
+    fakeCash.delete(message + project)
+  }, 60000)
   let db_project = await db.Project.get(project.name, project.namespace)
   let db_branch = await db.Branch.getByProject(attr.ref, db_project)
   let db_chats_id = await db.ChatProject.getChatsId(db_project)
