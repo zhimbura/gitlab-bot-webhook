@@ -16,7 +16,7 @@ router.post('/', async function(req, res) {
   if (!message.length || fakeCash.has(message + project)) {
     return res.send('ok')
   }
-  fakeCash.set(message + project)
+  fakeCash.add(message + project)
   setTimeout(() => {
     fakeCash.delete(message + project)
   }, 60000)
