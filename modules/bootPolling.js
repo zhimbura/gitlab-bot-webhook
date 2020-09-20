@@ -10,6 +10,7 @@ const removeProject = require('./botCommand/removeProject')
 const showProjects = require('./botCommand/showProjects')
 const showSubscribe = require('./botCommand/showSubscribe')
 const userNameSetter = require('./botCommand/userNameSetter')
+const messageAll = require('./botCommand/messageAll')
 
 bot.command('help', (ctx) => {
   ctx.reply(consts.helpText)
@@ -36,6 +37,9 @@ bot.command('showsubscribe@oss_bss_wc_bot', showSubscribe)
 
 bot.command('aliasme', userNameSetter)
 bot.command('aliasme@oss_bss_wc_bot', userNameSetter)
+
+bot.command('message', messageAll)
+bot.command('message@oss_bss_wc_bot', messageAll)
 
 console.log('Include pulling');
 

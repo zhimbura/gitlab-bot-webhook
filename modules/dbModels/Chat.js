@@ -34,6 +34,13 @@ async function getChat (telegramChatId) {
   return chat
 }
 
+
+async function getChats () {
+  let chats = await table.findAll({ raw: true })
+  return Array.isArray(chats) ? chats.map(c => c.telegramChatId) : []
+}
+
+
 async function removeChatById (id) {
   try {
    await table.destroy({
@@ -76,6 +83,7 @@ module.exports = {
   getChat,
   // getProjectsToString,
   getChatByProjectId,
+  getChats,
   getChatById,
   removeChatById
 }
