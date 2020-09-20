@@ -31,7 +31,9 @@ router.post('/', async function (req, res, next) {
         message += `\nAssignee: @${assignees.join(', @')}`
     }
     message += `\nURL: ${attr.url}`
-    message += `\nLabels:\n\t${data.labels.map(l => l.title).join('\n\t')}`
+    if (data.labels.length) {
+        message += `\nLabels:\n\t${data.labels.map(l => l.title).join('\n\t')}`
+    }
     await req[consts.PROP_MESSAGE].addMessage(message)
     next()
 });
