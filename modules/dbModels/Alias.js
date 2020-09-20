@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 let table = null
 
-function create (sequelize) {
+function create(sequelize) {
     let chat = sequelize.define("alias", {
         id: {
             type: Sequelize.INTEGER,
@@ -24,24 +24,24 @@ function create (sequelize) {
     return chat
 }
 
-async function getTelegramName (gitlabUserName) {
+async function getTelegramName(gitlabUserName) {
     let info = await table.findOne({
-        where: { gitlabUserName }
+        where: {gitlabUserName}
     })
     return info ? info.telegramUserName : null
 }
 
-async function addAlias (telegramUserName, gitlabUserName ) {
+async function addAlias(telegramUserName, gitlabUserName) {
     let info = await getTelegramName(gitlabUserName)
     if (!info) {
-        info = table.create({ gitlabUserName, telegramUserName})
+        info = table.create({gitlabUserName, telegramUserName})
     }
     return info
 }
 
-async function getGitLabName (telegramUserName) {
+async function getGitLabName(telegramUserName) {
     let info = await table.findOne({
-        where: { telegramUserName }
+        where: {telegramUserName}
     })
     return info ? info.gitlabUserName : null
 }

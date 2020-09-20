@@ -10,7 +10,7 @@ const DB = require('./modules/db')
 
 global.DB = DB
 
-const webhookRouter = require('./routes/webhook');
+const webhookRouter = require('./routes/webHooks/webhook');
 const indexRouter = require('./routes/index');
 
 const app = express();

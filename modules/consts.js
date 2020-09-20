@@ -19,5 +19,6 @@ module.exports = {
       error: 'CAACAgIAAxUAAV6A0gcO3uML7FPR-cKzTHfsJWOpAAKAAwAC6VUFGIByfmcSLD3pGAQ',
       wellSo: 'CAACAgIAAxUAAV6A0geNRM4Hds4lv98EfGJI3rbeAAKBAwAC6VUFGJ9zdA_JZYiEGAQ'
     }
-  }
+  },
+  PROP_MESSAGE: 'gitResponse'
 }
