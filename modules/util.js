@@ -25,7 +25,6 @@ function createPipelineResponse(
     branch,
     userName,
     commitMessage,
-    urlPipeline,
     projectUrl,
     id
 ) {
