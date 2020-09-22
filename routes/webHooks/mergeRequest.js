@@ -27,9 +27,7 @@ router.post('/', async function (req, res, next) {
     message += `\nState: ${attr.state}`
     message += `\nAction: ${attr.action}`
     message += `\nAuthor: @${authorName}`
-    if (attr.merge_status === 'can_be_merged') {
-        message += `\nAssignee: @${assignees.join(', @')}`
-    }
+    message += `\nAssignee: @${assignees.join(', @')}`
     message += `\nURL: ${attr.url}`
     if (data.labels.length) {
         message += `\nLabels:\n\t${data.labels.map(l => l.title).join('\n\t')}`
