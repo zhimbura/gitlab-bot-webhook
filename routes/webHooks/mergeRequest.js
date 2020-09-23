@@ -21,7 +21,7 @@ router.post('/', async function (req, res, next) {
         assignees.push(telegramName || assignee.username)
     }
     let message = ''
-    message += `❗❗❗ Merge request ${attr.source_branch} => ${attr.target_branch}`
+    message += `↔️ Merge request ${attr.source_branch} => ${attr.target_branch}`
     message += `\nTitle: ${attr.title}`
     message += `\nStatus: ${attr.merge_status}`
     message += `\nState: ${attr.state}`
