@@ -1,6 +1,6 @@
 # gitlab-bot-webhook
 
-Обрабатывает вебхуи с gitlab ci 
+Обрабатывает вебхуки с gitlab ci 
 
 В телеграмме @oss_bss_wc_bot
 
